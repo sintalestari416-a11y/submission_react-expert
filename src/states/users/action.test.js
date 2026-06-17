@@ -8,11 +8,13 @@
  * - asyncRegisterUser mengembalikan boolean: true (sukses) / false (gagal)
  */
 
-import { vi, describe, it, expect, beforeEach } from 'vitest';
+import {
+  vi, describe, it, expect, beforeEach,
+} from 'vitest';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
+import toast from 'react-hot-toast';
 import { asyncRegisterUser } from './index';
 import api from '../../utils/api';
-import toast from 'react-hot-toast';
 
 // ─── Mock Modul Eksternal ─────────────────────────────────────────────────────
 

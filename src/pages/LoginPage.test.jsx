@@ -15,12 +15,13 @@
  * - useSelector mengembalikan null (user belum login) agar halaman ter-render
  */
 
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import {
+  describe, it, expect, vi, beforeEach,
+} from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import * as reactRedux from 'react-redux';
-import * as reactRouterDom from 'react-router-dom';
 import LoginPage from './LoginPage';
 
 // ─── Mock react-redux ─────────────────────────────────────────────────────────

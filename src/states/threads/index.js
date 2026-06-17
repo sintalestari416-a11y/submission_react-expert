@@ -10,8 +10,8 @@
 
 import { createSlice } from '@reduxjs/toolkit';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-import api from '../../utils/api';
 import toast from 'react-hot-toast';
+import api from '../../utils/api';
 
 const threadsSlice = createSlice({
   name: 'threads',

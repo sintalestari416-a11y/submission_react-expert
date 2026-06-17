@@ -9,7 +9,9 @@
  *   melalui action type yang di-dispatch
  */
 
-import { vi, describe, it, expect, beforeEach } from 'vitest';
+import {
+  vi, describe, it, expect, beforeEach,
+} from 'vitest';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 import { asyncLoginUser, setAuthUser } from './index';
 import api from '../../utils/api';
