@@ -58,8 +58,8 @@ vi.mock('../states/authUser', () => ({
 
 // ─── Helper render ────────────────────────────────────────────────────────────
 
-function renderLoginPage(authUser = null) {
-  const mockDispatch = vi.fn().mockResolvedValue(undefined);
+function renderLoginPage(authUser = null, dispatchResult = undefined) {
+  const mockDispatch = vi.fn().mockResolvedValue(dispatchResult);
   reactRedux.useDispatch.mockReturnValue(mockDispatch);
   // useSelector digunakan untuk mengecek authUser (untuk guard redirect)
   reactRedux.useSelector.mockReturnValue(authUser);
@@ -187,7 +187,8 @@ describe('LoginPage component', () => {
 
     it('harus memanggil navigate ke "/" setelah dispatch berhasil', async () => {
       const user = userEvent.setup();
-      renderLoginPage();
+      // dispatch harus resolve dengan nilai truthy agar guard `if (result)` terpenuhi
+      renderLoginPage(null, { id: 'user-eka', name: 'Eka' });
 
       await user.type(screen.getByLabelText(/email/i), 'eka@test.com');
       await user.type(screen.getByLabelText(/password/i), 'pass456');
